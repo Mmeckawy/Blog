@@ -6,7 +6,7 @@ const blogRoutes = require('./routes/blogRoutes');
 const app = express();
 const DBlink = 'mongodb+srv://mmeckawy:7b8c9F@task1.iuem4.mongodb.net/myDB1?retryWrites=true&w=majority';
 mongoose.connect(DBlink, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => app.listen(4080))
+    .then((result) => app.listen(process.env.PORT ||4080))
     .catch((err) => console.log(err));
 
 
