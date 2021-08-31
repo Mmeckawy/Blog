@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
+const timeout = require('connect-timeout');
 
-app.listen(4080);
+app.listen(process.env.PORT || 4080);
 app.set('view engine', 'ejs');
+app.use(timeout('120s'));
 
 app.get('/', (req, res) => {
   const blogs = [
