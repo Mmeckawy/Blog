@@ -6,8 +6,10 @@ const blogRoutes = require('./routes/blogRoutes');
 const app = express();
 const DBlink = 'mongodb+srv://mmeckawy:7b8c9F@task1.iuem4.mongodb.net/myDB1?retryWrites=true&w=majority';
 mongoose.connect(DBlink, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => app.listen(process.env.PORT ||4080))
-    .catch((err) => console.log(err));
+    .then(result => {
+      app.listen(process.env.PORT ||4080);
+    })
+   .catch((err) => console.log(err));
 
 
 app.set('view engine', 'ejs');
@@ -15,6 +17,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
+
 app.use((req, res, next) => {
   res.locals.path = req.path;
   next();
