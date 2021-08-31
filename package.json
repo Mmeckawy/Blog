@@ -4,16 +4,21 @@
   "description": "",
   "main": "blog.js",
   "dependencies": {
+    "axios": "^0.21.1",
+    "connect-timeout": "^1.9.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "lodash": "^4.17.21",
     "mongoose": "^6.0.3",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "smart-timeout": "^2.6.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "middleware-axios": "^2.0.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node blog.js"
   },
   "author": "Mariam Yasser Abdelmageed Meckawy",
   "license": "ISC"

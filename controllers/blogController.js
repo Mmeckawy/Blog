@@ -25,6 +25,7 @@ const blog_create_get = (req, res) => {
   res.render('create', { title: 'Create a new blog' });
 }
 
+
 const blog_create_post = (req, res) => {
   const blog = new Blog(req.body);
   blog.save()
