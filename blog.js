@@ -2,7 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
-const sportRoutes = require('./routes/sportRoutes');
 const timeout = require('connect-timeout');
 
 const app = express();
@@ -36,7 +35,6 @@ app.get('/about', (req, res) => {
 
 
 app.use('/blogs', blogRoutes);
-app.use(sportRoutes);
 
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
