@@ -4,7 +4,26 @@
 <body>
   <%- include("./partials/nav.ejs") %>
 
-  <div class="about content">
+  <div class="games content">
+    <h2>Games Scores</h2>
+    <table>
+      <tr>
+        <td>
+        <p>Team ids: </p>    <%=data.id%>
+        </td>
+    </tr>
+    <tr>
+      <td>
+      <p>Home team name: </p>    <%=data.home_team_score%>
+      </td>
+  </tr>
+
+      <tr>
+        <td>
+        <p>Season: </p>    <%=data. visitor_team_score%>
+        </td>
+    </tr>
+    </table>
 
   </div>
 

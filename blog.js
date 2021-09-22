@@ -2,10 +2,11 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
+const api = require('./controllers/SportController')
 const timeout = require('connect-timeout');
 
 const app = express();
-const DBlink = 'mongodb+srv://mmeckawy:7b8c9F@task1.iuem4.mongodb.net/myDB1?retryWrites=true&w=majority';
+const DBlink = 'mongodb://mmeckawy:7b8c9F@task1-shard-00-00.iuem4.mongodb.net:27017,task1-shard-00-01.iuem4.mongodb.net:27017,task1-shard-00-02.iuem4.mongodb.net:27017/myDB1?ssl=true&replicaSet=atlas-60btyd-shard-0&authSource=admin&retryWrites=true&w=majority';
 mongoose.connect(DBlink, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => {
       app.listen(process.env.PORT || 4080);
@@ -35,6 +36,7 @@ app.get('/about', (req, res) => {
 
 
 app.use('/blogs', blogRoutes);
+app.use(api);
 
 app.use((req, res) => {
   res.status(404).render('404', { title: '404' });
